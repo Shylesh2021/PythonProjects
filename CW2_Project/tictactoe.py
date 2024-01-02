@@ -96,17 +96,18 @@ class GameScreen:
         self.screen1Grid = tk.Frame(self.homeScreen) 
         self.screen1Grid.columnconfigure(0, weight=1)
         self.screen1Grid.columnconfigure(1, weight=3)
+        alphabetValidator = self.homeScreen.register(self.isAlphabet)
 
         # text labes for information
         tk.Label(self.screen1Grid, text="Enter name:").grid(row=0, column=0)
         tk.Label(self.screen1Grid, text="Player 1:").grid(row=1, column=0)
         
         # Input box to enter player names
-        self.p1Name = tk.Entry(self.screen1Grid, width=20)
+        self.p1Name = tk.Entry(self.screen1Grid, width=20, validatecommand=(alphabetValidator, "%P"), validate="all")
         self.p1Name.grid(row=1, column=1)
         
         tk.Label(self.screen1Grid, text="Player 2:").grid(row=2, column=0)
-        self.p2Name = tk.Entry(self.screen1Grid, width=20)
+        self.p2Name = tk.Entry(self.screen1Grid, width=20, validatecommand=(alphabetValidator, "%P"), validate="all")
         # the grid() method calls denotes where to place the element in a grid
         self.p2Name.grid(row=2, column=1) 
 
@@ -209,6 +210,11 @@ class GameScreen:
             return True
         else:
             return False
+        
+
+    def isAlphabet(self, p):
+        return not self.isDigit(p)
+    
 
 
 # Main class that inherits from the Tk's basic UI element i.e. Frame 
