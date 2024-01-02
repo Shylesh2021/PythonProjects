@@ -1,4 +1,4 @@
-# This reposiotory holds the source code and flowchart for TicTacToe game developed by Sylesh and Moremi
+# This reposiotory holds the source code and flowchart for TicTacToe game developed by Shylesh and Moremi as a part of the CW2 assessment for Programming Principles Module
 
 ## TictacToeProject
 - Steps to Run the Project Source Code:
