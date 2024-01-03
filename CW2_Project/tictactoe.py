@@ -211,10 +211,11 @@ class GameScreen:
         else:
             return False
         
-
     def isAlphabet(self, p):
-        return not self.isDigit(p)
-    
+        asciiVal = 65 # A-> 65
+        if len(p) > 0:
+            asciiVal = ord(p[len(p) - 1:len(p)])
+        return not self.isDigit(p) and (asciiVal >= 65 and asciiVal <= 90) or (asciiVal >= 97 and asciiVal <= 122)
 
 
 # Main class that inherits from the Tk's basic UI element i.e. Frame 
